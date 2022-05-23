@@ -6,25 +6,28 @@ import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
 import SignupDemo from './pages/SignUpDemo';
 import { useEffect } from 'react';
+import LoginForm from './manualform/LoginForm';
+import SignupForm from './pages/SignupForm';
+import SignUpForm from './manualform/SignUpForm';
 
 function App() {
 
   const WithRouter = () =>{
     const nevigate = useNavigate()
 
-    useEffect(()=>{
-      const user = JSON.parse(localStorage.getItem("user"))
-      if(!user)
-        nevigate("/login")
-    }, [])
+    // useEffect(()=>{
+    //   const user = JSON.parse(localStorage.getItem("user"))
+    //   if(!user)
+    //     nevigate("/register")
+    // }, [])
 
       return(
         <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='/login' element={<Login />} />
-        <Route exact path='/register' element={<Signup />} />
-        <Route exact path='/registerdemo' element={<SignupDemo />} />
-      </Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/login' element={<LoginForm />} />
+          <Route exact path='/register' element={<SignUpForm />} />
+          {/* <Route exact path='/registerdemo' element={<SignUpForm />} /> */}
+        </Routes>
       )
   } 
 
